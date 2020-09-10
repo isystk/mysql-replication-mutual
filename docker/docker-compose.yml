@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  
+  mysql1:
+    image: ${PROJECT_NAME}/mysql1
+    build:
+      context: "./mysql1"
+      dockerfile: "Dockerfile"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+     - "33061:3306"
+    restart: always
+    volumes:
+     - ./mysql1/conf.d:/etc/mysql/conf.d
+     - ./mysql1/data:/var/lib/mysql
+     - ./mysql1/logs:/var/log/mysql
+
+  mysql2:
+    image: ${PROJECT_NAME}/mysql2
+    build:
+      context: "./mysql2"
+      dockerfile: "Dockerfile"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+     - "33062:3306"
+    restart: always
+    volumes:
+     - ./mysql2/conf.d:/etc/mysql/conf.d
+     - ./mysql2/data:/var/lib/mysql
+     - ./mysql2/logs:/var/log/mysql

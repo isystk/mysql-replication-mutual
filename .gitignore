@@ -1,0 +1,10 @@
+.DS_Store
+.history
+*.log
+!.gitkeep
+
+# mysql
+docker/mysql1/data
+docker/mysql1/logs
+docker/mysql2/data
+docker/mysql2/logs
